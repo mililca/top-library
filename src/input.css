@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
+
+@layer components {
+    .card {
+      @apply border-gray-300
+    }
+  }
+
 @tailwind utilities;
