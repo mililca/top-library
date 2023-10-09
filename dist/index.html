@@ -5,14 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP Library</title>
     <link rel="stylesheet" href="output.css">
+    <script src="/script.js" defer></script>
 </head>
 <body class="font-sans box-border text-indigo-950 flex flex-col min-h-screen items-center">
+    <dialog>
+        <div class="flex flex-col px-8 py-4 border rounded-xl">
+            <form method="dialog" class="flex flex-col gap-2">
+                <label for="title">title*</label>
+                <input autofocus 
+                type="text" 
+                name="title" 
+                id="title" 
+                placeholder="Harry Potter" 
+                class="border border-gray-300 rounded-lg p-2" 
+                required>
+                <small style="color: red; display: none">* Book title is required</small>
+
+                <label for="author">author*</label>
+                <input type="text" 
+                name="author" 
+                id="author" 
+                placeholder="J.J.K. Rowling" 
+                class="border border-gray-300 rounded-lg p-2" 
+                required>
+                <small style="color: red; display: none">* Book author is required</small>
+
+                <label for="pages">total pages*</label>
+                <input type="number" 
+                name="pages" 
+                id="pages" 
+                placeholder="0" 
+                min="1" 
+                max="2000" 
+                class="border border-gray-300 rounded-lg p-2" 
+                required>
+                <small style="color: red; display: none">* Number of pages is required</small>
+
+                <label for="book-status">have you read it?*</label>
+                <select name="book-status" id="book-status" required>
+                    <option value="read">read</option>
+                    <option value="not-read">not read</option>
+                </select>
+                <small style="color: red; display: none">* Book status is required</small>
+
+                <button type="submit" class="submit px-4 py-2 my-2 rounded-lg w-full text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">submit</button>
+                <button type="button" class="cancel px-4 py-2 my-2 rounded-lg w-full text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">cancel</button>
+            </form>
+        </div>
+    </dialog> 
     <div class="h-auto flex flex-col items-center ">
         <div class="text-6xl font-bold pt-24 pb-4">library</div>
         <div class="text-2xl font-semibold pb-4 px-16 text-center">this is your personal library! add books <span class="italic text-indigo-800">now</span> to keep track of your progress</div>
     </div>
-    <div class="text-indigo-700 text-2xl font-bold bg-indigo-200 border-indigo-700 border border-opacity-0 hover:bg-indigo-100 cursor-pointer active:border-opacity-100 py-2 px-8 rounded-full mb-8 lg:text-lg">add new book</div>
-    <div class= "grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full lg:w-2/3 lg:gap-0">
+    <div class="add text-indigo-700 text-2xl font-bold bg-indigo-200 border-indigo-700 border border-opacity-0 hover:bg-indigo-100 cursor-pointer active:border-opacity-100 py-2 px-8 rounded-full mb-8 lg:text-lg">add new book</div>
+    <div class= "grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full lg:w-2/3 lg:gap-4">
         <div class="text-lg border border-gray-300 rounded-xl py-4 flex flex-col items-center justify-center w-4/5 shadow-lg gap-1">
             <div class="font-bold text-lg">title</div>
             <div>author</div>
@@ -20,28 +66,6 @@
             <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">read</div>
             <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">remove</div>
         </div>
-        <div class="text-lg border border-gray-300 rounded-xl py-4 flex flex-col items-center justify-center w-4/5 shadow-lg gap-1">
-            <div class="font-bold text-lg">title</div>
-            <div>author</div>
-            <div>pages</div>
-            <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">read</div>
-            <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">remove</div>
-        </div>
-        <div class="text-lg border border-gray-300 rounded-xl py-4 flex flex-col items-center justify-center w-4/5 shadow-lg gap-1">
-            <div class="font-bold text-lg">title</div>
-            <div>author</div>
-            <div>pages</div>
-            <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">read</div>
-            <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">remove</div>
-        </div>
-        <div class="text-lg border border-gray-300 rounded-xl py-4 flex flex-col items-center justify-center w-4/5 shadow-lg gap-1">
-            <div class="font-bold text-lg">title</div>
-            <div>author</div>
-            <div>pages</div>
-            <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">read</div>
-            <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">remove</div>
-        </div>
-
     </div>
     <div class="h-12 mt-auto p-4">
         <div class="flex items-center"> <a href="https://github.com/mililca" target="_blank"><img src="/github-mark.svg" alt="GitHub Logo" class="w-5 flex-shrink-0 m-2"></a> by mililca for the odin project</div>
