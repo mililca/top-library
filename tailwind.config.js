@@ -3,7 +3,7 @@ module.exports = {
   content: ["./dist/*.{html,js}"],
   theme: {
     extend: {
-      backgroundColor: ['hover', 'active',]
+      backgroundColor: ['hover', 'active', 'focus']
     },
   },
   plugins: [],
