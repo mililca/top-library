@@ -1,30 +1,31 @@
 const myLibrary = []
 
-function Book() {
+function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = false;
+    this.read = read;
+    this.id = id;
 }
 
 function addBookToLibrary() {
-    myLibrary.push({
-        "title": `${document.querySelector('#title').value}`,
-        "author": `${document.querySelector('#author').value}`,
-        "pages": `${document.querySelector('#pages').value}`,
-        "read": `${document.querySelector('#book-status').value}`
-    },);
-    console.log(myLibrary)
+    let newBook = new Book(document.querySelector('#title').value, document.querySelector('#author').value, document.querySelector('#pages').value, document.querySelector('#book-status').value, )
+    myLibrary.push(newBook);
+    console.log(myLibrary);
+    addBookToDOM(newBook);
+};
+
+function addBookToDOM(Book) {
     let newBook = document.createElement('div');
     let grid = document.querySelector('.grid');
     grid.appendChild(newBook);
-    newBook.setAttribute('class', 'text-lg border border-gray-300 rounded-xl py-4 flex flex-col items-center justify-center w-4/5 shadow-lg gap-1')
+    newBook.setAttribute('class', 'text-lg border border-gray-300 rounded-xl py-4 flex flex-col items-center justify-center w-4/5 shadow-lg gap-1 flex-wrap')
     newBook.innerHTML = `            
-    <div class="font-bold text-lg">${document.querySelector('#title').value}</div>
-    <div>${document.querySelector('#author').value}</div>
-    <div>${document.querySelector('#pages').value}</div>
-    <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">${document.querySelector('#book-status').value}</div>
-    <div class="px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">remove</div>`
+    <div class="font-bold text-lg text-center">${Book.title}</div>
+    <div>${Book.author}</div>
+    <div>${Book.pages}</div>
+    <div class="book-status px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">${Book.read}</div>
+    <div class="remove px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer">remove</div>`
 };
 
 const submit = document.querySelector(".submit");
@@ -32,6 +33,12 @@ submit.addEventListener("click", () => {
     addBookToLibrary();
     dialog.close();
 });
+
+// remove book code 
+
+function removeBook() {
+
+}
 
 // form validation code
 
