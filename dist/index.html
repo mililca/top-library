@@ -41,8 +41,11 @@
                 required>
                 <small style="color: red; display: none">* Number of pages is required</small>
 
-                <label for="book-status">have you read it?*</label>
-                <input type="checkbox" name="book-read" id="book-read">
+                <label for="read">have you read it?*</label>
+                <select name="read" id="book-read">
+                    <option value="true">read</option>
+                    <option value="false">not read</option>
+                </select>
                 <small style="color: red; display: none">* Book status is required</small>
 
                 <button type="submit" class="submit px-4 py-2 my-2 rounded-lg w-full text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer">submit</button>

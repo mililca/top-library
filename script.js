@@ -24,12 +24,12 @@ form.addEventListener("submit", (e) => {
     // fix this later
     const data = new FormData(e.target);
     let newBook = {};
-    for(let [name,value] of data) {
-        if(name==='read'){
-            //ignore
-        } else {
-            newBook[name] = value || "";
-        }
+    for (let [name, value] of data) {
+      if (name === "book-read") {
+        newBook["book-read"] = true;
+      } else {
+        newBook[name] = value || "";
+      }
     }
 
     console.log(newBook)
@@ -72,10 +72,10 @@ function deleteBook(index) {
 }
 
 function isRead(read, book) {
-    if (book.read == true) {
+    if (book.read === 'true') {
         read.textContent = "read";
         read.setAttribute('class' ,'px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-indigo-200 hover:bg-indigo-100 cursor-pointer');
-    } else if (book.read == false) {
+    } else if (book.read === 'false') {
         read.textContent = "not read";
         read.setAttribute('class' ,'px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-rose-200 hover:bg-rose-100 cursor-pointer');
     }
@@ -101,12 +101,14 @@ function createBookItem(book, index) {
     bookItem.appendChild(createBookElement('h1', `${book.author}`, 'book-author'));
     bookItem.appendChild(createBookElement('h1', `${book.pages}`, 'book-pages'));
     bookItem.appendChild(createReadElement(book)).addEventListener('click', () => {
-        if (book.read == true) {
-            book.read = false;
+        if (book.read === 'true') {
+            book.read = 'false';
             console.log(book.read);
-        } else if (book.read == false) {
-            book.read = true;
-            console.log(book.read)
+            saveAndRenderBooks();
+        } else if (book.read === 'false') {
+            book.read = 'true';
+            console.log(book.read);
+            saveAndRenderBooks();
         }
     });
     bookItem.appendChild(createBookElement('div', 'remove', 'px-4 py-2 my-2 rounded-lg w-2/3 text-center bg-gray-100 hover:bg-gray-50 cursor-pointer')).addEventListener(
